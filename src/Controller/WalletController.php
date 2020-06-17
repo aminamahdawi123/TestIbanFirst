@@ -45,7 +45,7 @@ class WalletController extends BaseController {
      */
     public function all(){
 
-        $nonce="";
+        $nonce="oooooooooooooooooo";
         $nonce64="";
         $date="";
         $digest="";
@@ -54,6 +54,7 @@ class WalletController extends BaseController {
         $method 	= "GET";
         $header = $this->authentificationApi->authentificate($nonce, $this->getParameter('username'), $this->getParameter('password'))['header'];
         $datas = $this->dataHandler->getAllWalls($method, $postParams, $this->getParameter('url'), $header)['datas'];
+
         return new JsonResponse(explode("\r\n\r\n",$datas)[1], 200);
     }
 
